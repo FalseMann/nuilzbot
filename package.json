@@ -1,0 +1,63 @@
+{
+  "name": "nuilzbot",
+  "private": true,
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:FalseMann/nuilzbot.git"
+  },
+  "author": "FalseMann <false@falsemann.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "coverage": "vitest run --coverage",
+    "dev": "nodemon src/index.ts",
+    "lint": "lint-staged",
+    "prepare": "husky install",
+    "test": "vitest --run"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "nodemon": "^2.0.22",
+    "prettier": "2.8.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3",
+    "vitest": "^0.29.8"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard-with-typescript",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "lint-staged": {
+    "*.{json,md,yml}": [
+      "prettier --list-different --write"
+    ],
+    "*.{js,ts}": [
+      "eslint --cache --fix ."
+    ]
+  },
+  "volta": {
+    "node": "18.15.0",
+    "npm": "9.6.3"
+  }
+}
